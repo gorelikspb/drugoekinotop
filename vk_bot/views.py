@@ -10,7 +10,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .bot_config import * # import token, confirmation_token and over constants from bot_config.py
 
-import json, vk # vk is library from VK
+import json, vk_api # vk is library from VK
 
 """
 Using VK Callback API version 5.5
@@ -47,12 +47,20 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
                 # confirmation_token from bot_config.py
                 return HttpResponse(confirmation_token, content_type="text/plain", status=200)
             if (data['type'] == 'message_new'):# if VK server send a message
-                session = vk.Session()
-                api = vk.API(session, v=5.5)
+                # session = vk.Session()
+                vk_session = vk_api.VkApi(token=token)
+
+                vk = vk_session.get_api()
                 user_id = data['object']['user_id']
 
                 # token from bot_config.py
                 api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
+                vk.messages.send(
+                        user_id=str(user_id),
+                        # random_id=get_random_id(),
+                        message="Hello, I'm bot!")
+
+
                 return HttpResponse('ok', content_type="text/plain", status=200)
     else:
         return HttpResponse('see you :)')
