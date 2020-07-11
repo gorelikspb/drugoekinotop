@@ -9,8 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import HttpResponse
 from .bot_config import * # import token, confirmation_token and over constants from bot_config.py
-
-import json, vk_api # vk is library from VK
+from vk_api.utils import get_random_id
 
 """
 Using VK Callback API version 5.5
