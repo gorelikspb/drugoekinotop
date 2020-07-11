@@ -1,4 +1,5 @@
 PassengerEnabled On
-
-PassengerPython /usr/bin/python3.6
+PassengerAppRoot /home/d/drimspb/drugoekino.top/public_html/
+#PassengerPython /usr/bin/python3.6
 PassengerPython /home/d/drimspb/.local/bin/python3.6
+SetEnv PYTHONPATH /home/d/drimspb/.local/bin/python3.6/site-packages
