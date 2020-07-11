@@ -1,2 +1,4 @@
 PassengerEnabled On
+
 PassengerPython /usr/bin/python3.6
+PassengerPython /home/d/drimspb/.local/bin/python3.6
