@@ -54,10 +54,10 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
                 user_id = data['object']['user_id']
 
                 # token from bot_config.py
-                api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
+                # api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
                 vk.messages.send(
                         user_id=str(user_id),
-                        # random_id=get_random_id(),
+                        random_id=get_random_id(),
                         message="Hello, I'm bot!")
 
 
