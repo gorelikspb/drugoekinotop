@@ -52,8 +52,8 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
     #     print('Filename:', file_name    , file=f)
 
     # print (request.method)
-    module_dir = os.path.dirname(__file__)
-    file_path = os.path.join(module_dir, 'baz.txt')
+    # module_dir = os.path.dirname(__file__)
+    file_path = os.path.join(BASE_DIR, 'baz.txt')
     with open(file_path, 'w') as f:
         f.write('Hello World')
     
