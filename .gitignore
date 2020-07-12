@@ -7,3 +7,4 @@ db.sqlite3
 .DS_Store
 .idea/
 /vk_bot/bot_config.py
+baz.txt

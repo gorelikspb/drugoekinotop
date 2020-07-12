@@ -57,8 +57,8 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
     # print (request.method)
     # module_dir = os.path.dirname(__file__)
     file_path = os.path.join(settings.BASE_DIR, 'baz.txt')
-    with open(file_path, 'w') as f:
-        f.write('Hello World')
+    with open(file_path, 'a') as f:
+        f.write('Hello ne World')
     
 
     
@@ -88,10 +88,14 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
 
                 # token from bot_config.py
                 # api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
-                vk.messages.send(
-                        user_id=str(user_id),
-                        random_id=get_random_id(),
-                        message="Hello, I'm bot!")
+                # vk.messages.send(
+                #         user_id=str(user_id),
+                #         random_id=get_random_id(),
+                #         message="Hello, I'm bot!")
+
+                with open(file_path, 'a') as f:
+                    f.write('message ind')
+    
 
                 vk.messages.send(
                         user_id=16200,
