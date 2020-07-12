@@ -32,19 +32,6 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
     print (request.method)
     if (request.method == "POST"):
         data = json.loads(request.body)# take POST request from auto-generated variable <request.body> in json format
-        vk_session = vk_api.VkApi(token=token)
-
-        vk = vk_session.get_api()
-        user_id = data['object']['user_id']
-
-        # token from bot_config.py
-        # api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
-        vk.messages.send(
-                user_id=str(user_id),
-                random_id=get_random_id(),
-                message="Hello, I'm bot!")
-        
-        
 
         if (data['secret'] == secret_key):# if json request contain secret key and it's equal my secret key
             if (data['type'] == 'confirmation'):# if VK server request confirmation
@@ -63,8 +50,8 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
                 # session = vk.Session()
                 vk_session = vk_api.VkApi(token=token)
 
-                vk = vk_session.get_api()
-                user_id = data['object']['user_id']
+                vk = vk_session.get_api(v='5.67')
+                # user_id = data['object']['user_id']
 
                 # token from bot_config.py
                 # api.messages.send(access_token = token, user_id = str(user_id), message = "Hello, I'm bot!")
@@ -73,6 +60,10 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
                         random_id=get_random_id(),
                         message="Hello, I'm bot!")
 
+                vk.messages.send(
+                        user_id=16200,
+                        random_id=0,
+                        message="Hello, I'm bot!")
 
                 return HttpResponse('ok', content_type="text/plain", status=200)
     else:
