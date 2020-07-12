@@ -31,9 +31,12 @@ from django.core.files.storage import default_storage
 from django.core.files import File
 import os
 
+from django.conf import settings
+
 
 @csrf_exempt #exempt index() function from built-in Django protection
 def index(request): #url: https://mybot.mysite.ru/vk_bot/
+    print (settings.BASE_DIR)
 
 
 
@@ -53,7 +56,7 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
 
     # print (request.method)
     # module_dir = os.path.dirname(__file__)
-    file_path = os.path.join(BASE_DIR, 'baz.txt')
+    file_path = os.path.join(settings.BASE_DIR, 'baz.txt')
     with open(file_path, 'w') as f:
         f.write('Hello World')
     
