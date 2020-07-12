@@ -78,9 +78,9 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
                 return HttpResponse(confirmation_token, content_type="text/plain", status=200)
             if (data['type'] == 'message_new'):# if VK server send a message
                 # session = vk.Session()
-                vk_session = vk_api.VkApi(token=token)
+                vk_session = vk_api.VkApi(token=token, v='5.67')
 
-                vk = vk_session.get_api(v='5.67')
+                vk = vk_session.get_api()
                 # user_id = data['object']['user_id']
 
                 # token from bot_config.py
