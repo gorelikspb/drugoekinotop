@@ -36,7 +36,7 @@ from django.conf import settings
 
 @csrf_exempt #exempt index() function from built-in Django protection
 def index(request): #url: https://mybot.mysite.ru/vk_bot/
-    print (settings.BASE_DIR)
+    # print (settings.BASE_DIR)
 
 
 
@@ -104,4 +104,4 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
 
                 return HttpResponse('ok', content_type="text/plain", status=200)
     else:
-        return HttpResponse('see you :)')
+        return HttpResponse('see you or not:)')
