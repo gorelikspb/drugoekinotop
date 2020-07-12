@@ -29,6 +29,11 @@ For cross site request protection will be used secret key from VK
 """
 @csrf_exempt #exempt index() function from built-in Django protection
 def index(request): #url: https://mybot.mysite.ru/vk_bot/
+
+    with open('out.txt', 'w') as f:
+    # print >> f, 'Filename:', filename     # Python 2.x
+    print('Filename:', filename, file=f)
+
     print (request.method)
     if (request.method == "POST"):
         data = json.loads(request.body)# take POST request from auto-generated variable <request.body> in json format
