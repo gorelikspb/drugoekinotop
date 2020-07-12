@@ -28,6 +28,7 @@ ensured by the Django middleware.
 For cross site request protection will be used secret key from VK
 """
 from django.core.files.storage import default_storage
+from django.core.files import File
 
 
 @csrf_exempt #exempt index() function from built-in Django protection
@@ -35,21 +36,26 @@ def index(request): #url: https://mybot.mysite.ru/vk_bot/
 
 
 
-    #  Saving POST'ed file to storage
-    # file = request.FILES['myfile']
-    # file_name = default_storage.save(file.name, file)
+    # #  Saving POST'ed file to storage
+    # # file = request.FILES['myfile']
+    # # file_name = default_storage.save(file.name, file)
 
-    #  Reading file from storage
-    file = default_storage.open(file_name)
-    file_url = default_storage.url(file_name)
+    # #  Reading file from storage
+    # file = default_storage.open(file_name)
+    # file_url = default_storage.url(file_name)
 
-    with open('out.txt', 'w') as f:
-        file_name = default_storage.save(f.name, f)
+    # with open('out.txt', 'w') as f:
+    #     file_name = default_storage.save(f.name, f)
 
-    # print >> f, 'Filename:', filename     # Python 2.x
-        print('Filename:', file_name, file=f)
+    # # print >> f, 'Filename:', filename     # Python 2.x
+    #     print('Filename:', file_name    , file=f)
 
-    print (request.method)
+    # print (request.method)
+    with open('hello.txt', 'w') as f:
+        myfile = File(f)
+        myfile.write('Hello World')
+    myfile.closed
+
     if (request.method == "POST"):
         data = json.loads(request.body)# take POST request from auto-generated variable <request.body> in json format
 
